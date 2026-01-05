@@ -1,6 +1,6 @@
 import { Client, Account, ID } from "appwrite";
 
-import config from "../../config";
+import config from "../config";
 
 const client = new Client()
   .setEndpoint(config.appwriteUrl) // Your API Endpoint
@@ -18,21 +18,21 @@ const login = async ({ email, password }) => {
 };
 
 const logout = async ({ sessionId = "current" }) => {
-    try {
-        // await account.deleteSession({ sessionId });
-        await account.deleteSessions();
-    } catch (error) {
-        console.error("[logout]: ", error);
-    }
+  try {
+    // await account.deleteSession({ sessionId });
+    await account.deleteSessions();
+  } catch (error) {
+    console.error("[logout]: ", error);
+  }
 };
 
 const getCurrentUser = async () => {
-    try {
-        return await account.get();
-    } catch (error) {
-        console.error("[getCurrentUser]: ", error);
-    }
-    return null;
+  try {
+    return await account.get();
+  } catch (error) {
+    console.error("[getCurrentUser]: ", error);
+  }
+  return null;
 };
 
 const createUser = async ({ email, password }) => {
