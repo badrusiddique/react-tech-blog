@@ -1,11 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Provider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
 
 import './index.css'
-import App from './App.jsx'
 import config from './config';
+import routes from './router/routes.js';
 import store from './store/storeContext.js';
-import { Provider } from 'react-redux';
 
 
 console.log(`Tech Blog using appwrite with URL: ${config.appwriteUrl}`);
@@ -13,7 +14,7 @@ console.log(`Tech Blog using appwrite with URL: ${config.appwriteUrl}`);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <RouterProvider router={routes} />
     </Provider>
   </StrictMode>,
-)
+);

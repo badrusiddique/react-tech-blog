@@ -17,7 +17,7 @@ const login = async ({ email, password }) => {
   return null;
 };
 
-const logout = async ({ sessionId = "current" }) => {
+const logout = async () => {
   try {
     // await account.deleteSession({ sessionId });
     await account.deleteSessions();
